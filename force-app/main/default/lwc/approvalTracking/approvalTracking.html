@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Pelacak Status Persetujuan Kontrak" icon-name="standard:approval">
+        <div class="slds-var-m-around_medium">
+            <div class="slds-grid slds-grid_vertical-align-center slds-var-m-bottom_medium">
+                <span class="slds-text-heading_small slds-var-m-right_small">Status Saat Ini:</span>
+                <lightning-badge label={approvalStatus} class={badgeClass}></lightning-badge>
+            </div>
+
+            <lightning-progress-indicator current-step={approvalStatus} type="base" variant="base">
+                <lightning-progress-step label="Draft" value="Draft"></lightning-progress-step>
+                <lightning-progress-step label="Dalam Review" value="In Review"></lightning-progress-step>
+                <lightning-progress-step label="Disetujui" value="Approved"></lightning-progress-step>
+            </lightning-progress-indicator>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Form Pengajuan Kontrak Pintar" icon-name="custom:custom62">
+        <div class="slds-var-m-around_medium">
+            <h3 class="slds-text-heading_small slds-var-m-bottom_small">Input Data Kontrak</h3>
+            <lightning-record-form
+                object-api-name="Smart_Contract__c"
+                layout-type="Full"
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </div>
+
+        <template if:true={contractId}>
+            <div class="slds-var-m-around_medium slds-box slds-theme_shade">
+                <h3 class="slds-text-heading_small slds-var-m-bottom_small" style="color: green;">✓ Data Kontrak Tersimpan!</h3>
+                <lightning-file-upload
+                    label="Unggah Dokumen Kontrak (PDF/Word)"
+                    name="contractUploader"
+                    accept={acceptedFormats}
+                    record-id={contractId}
+                    onuploadfinished={handleUploadFinished}>
+                </lightning-file-upload>
+            </div>
+        </template>
+    </lightning-card>
+</template>
